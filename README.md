@@ -1,17 +1,20 @@
-# Getting Started
+# Spring Boot validation template
 
-### Reference Documentation
-For further reference, please consider the following sections:
+## Build
+`mvnw clean install`
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.2/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.2/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.2/reference/htmlsingle/#web)
+## Run
+Run as Spring Boot application
 
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-
+## Test
+Send POST-request to `http://localhost:8080/user/validate`
+with header `Content-type: application/json`
+and body:
+```json
+{
+    "firstName":"Mike"
+    "lastName":"Oliver",
+    "email":"example@example.com"
+}
+```
+In case firstName or lastName is empty or email is incorrect, an error message will be returned.
